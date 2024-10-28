@@ -10,7 +10,7 @@ import re
 """"Функція generator_numbers(text: str) повинна приймати рядок як аргумент і повертати генератор, 
  що ітерує по всіх дійсних числах у тексті. 
  Дійсні числа у тексті вважаються записаними без помилок і чітко відокремлені пробілами з обох боків."""
-def generator_numbers(text: str) -> float:
+def generator_numbers(text: str):
 
     # Регулярний вираз для ідентифікації дійсних чисел, відокремлених пробілами
     pattern = r'(?<!\S)[+-]?\d+(\.\d+)?(?!\S)'
@@ -25,7 +25,7 @@ def generator_numbers(text: str) -> float:
 def sum_profit(text: str, func: Callable) -> float:
     total_profit = 0.0
     gen = generator_numbers(text)
-    
+
     for number in gen:
         total_profit += number
     
