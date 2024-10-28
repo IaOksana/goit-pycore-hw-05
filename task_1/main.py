@@ -22,6 +22,7 @@ def caching_fibonacci() -> Callable[[int], int]:
     
     return fibonacci
 
+
 # Отримуємо функцію fibonacci
 fib = caching_fibonacci()
 
