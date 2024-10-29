@@ -1,11 +1,10 @@
 from pathlib import Path
 import re
 
-"""
-Реалізуйте функцію load_logs(file_path: str) -> list для завантаження логів з файлу.
+
+""" Реалізуйте функцію load_logs(file_path: str) -> list для завантаження логів з файлу.
 Завантаження лог-файлів виконує функція load_logs(file_path: str) -> list, що відкриває файл, читає кожен 
-рядок і застосовує на нього функцію parse_log_line, зберігаючи результати в список.
-"""
+рядок і застосовує на нього функцію parse_log_line, зберігаючи результати в список. """
 def load_logs(file_path: str) -> list:
     path = Path(file_path)
     result_list = []
@@ -20,24 +19,15 @@ def load_logs(file_path: str) -> list:
         return []
 
 
-"""
-Реалізуйте функцію filter_logs_by_level(logs: list, level: str) -> list для фільтрації логів за рівнем.
+""" Реалізуйте функцію filter_logs_by_level(logs: list, level: str) -> list для фільтрації логів за рівнем.
 Фільтрацію за рівнем логування виконує функція filter_logs_by_level(logs: list, level: str) -> list. 
-Вона дозволить вам отримати всі записи логу для певного рівня логування.
-"""
+Вона дозволить вам отримати всі записи логу для певного рівня логування. """
 def filter_logs_by_level(logs: list, level: str) -> list:
-    result = []
-    if level:
-        for item in logs:
-            if item["level"] == level:
-                result.append(item)
-    return result
+    return list(filter(lambda log: log["level"] == level, logs))
 
 
-"""
-Підрахунок записів за рівнем логування, проходить по всім записам і підраховує кількість записів для кожного 
-рівня логування.
-"""
+""" Підрахунок записів за рівнем логування, проходить по всім записам і підраховує кількість записів для кожного 
+рівня логування. """
 def count_logs_by_level(logs: list) -> dict:
     result = {"INFO" : 0, "DEBUG" : 0, "ERROR" : 0, "WARNING" : 0}
 
@@ -47,10 +37,8 @@ def count_logs_by_level(logs: list) -> dict:
     return result
 
 
-"""
-Вивід результатів - форматує та виводить результати підрахунку в читабельній формі
-Вона приймає результати виконання функції count_logs_by_level.
-"""
+""" Вивід результатів - форматує та виводить результати підрахунку в читабельній формі
+Вона приймає результати виконання функції count_logs_by_level. """
 def display_log_counts(counts: dict):
 
     print("Рівень логування | Кількість")
@@ -61,11 +49,9 @@ def display_log_counts(counts: dict):
     print(f'WARNING          | {counts["WARNING"]}')
 
 
-"""
-Парсинг рядка логу виконує ****функцію parse_log_line(line: str) -> dict, яка приймає рядок з логу як вхідний 
+""" Парсинг рядка логу виконує ****функцію parse_log_line(line: str) -> dict, яка приймає рядок з логу як вхідний 
 параметр і повертає словник з розібраними компонентами: дата, час, рівень, повідомлення. 
-example: 2024-01-22 13:30:30 INFO Scheduled maintenance.
-"""
+example: 2024-01-22 13:30:30 INFO Scheduled maintenance. """
 def parse_log_line(line: str) -> dict:
     line_parts = line.split(maxsplit=3)
 
