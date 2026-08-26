@@ -3,10 +3,12 @@ from typing import Callable
 from collections import defaultdict
 
 
+# Handle the caching fibonacci operation.
 def caching_fibonacci() -> Callable[[int], int]:
     # Створити порожній словник cache
     cache = defaultdict()
 
+    # Handle the fibonacci operation.
     def fibonacci(n : int) -> int :
       
         if n <= 0 :
