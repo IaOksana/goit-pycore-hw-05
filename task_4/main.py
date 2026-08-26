@@ -8,6 +8,7 @@ import re
 
 '''decorator'''
 def input_error(func):
+    # Handle the inner operation.
     def inner(*args, **kwargs):
         try:
             return func(*args, **kwargs)
@@ -73,6 +74,7 @@ def show_phone(args : list[str], contacts : list[dict]) -> str:
 
 
 
+# Run the main operation.
 def main() :
     # словник Python для зберігання імен і номерів телефонів. Ім'я буде ключем, а номер телефону – значенням.
     contacts = []
