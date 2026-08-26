@@ -6,6 +6,7 @@ from processing import load_logs, display_log_counts, count_logs_by_level, filte
 import sys 
 
 
+# Run the main operation.
 def main() :    
 
     # Check if no input
