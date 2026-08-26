@@ -5,6 +5,7 @@ import re
 """ Реалізуйте функцію load_logs(file_path: str) -> list для завантаження логів з файлу.
 Завантаження лог-файлів виконує функція load_logs(file_path: str) -> list, що відкриває файл, читає кожен 
 рядок і застосовує на нього функцію parse_log_line, зберігаючи результати в список. """
+# Load the load logs operation.
 def load_logs(file_path: str) -> list:
     path = Path(file_path)
     result_list = []
@@ -22,12 +23,14 @@ def load_logs(file_path: str) -> list:
 """ Реалізуйте функцію filter_logs_by_level(logs: list, level: str) -> list для фільтрації логів за рівнем.
 Фільтрацію за рівнем логування виконує функція filter_logs_by_level(logs: list, level: str) -> list. 
 Вона дозволить вам отримати всі записи логу для певного рівня логування. """
+# Handle the filter logs by level operation.
 def filter_logs_by_level(logs: list, level: str) -> list:
     return list(filter(lambda log: log["level"] == level, logs))
 
 
 """ Підрахунок записів за рівнем логування, проходить по всім записам і підраховує кількість записів для кожного 
 рівня логування. """
+# Handle the count logs by level operation.
 def count_logs_by_level(logs: list) -> dict:
     result = {"INFO" : 0, "DEBUG" : 0, "ERROR" : 0, "WARNING" : 0}
 
@@ -39,6 +42,7 @@ def count_logs_by_level(logs: list) -> dict:
 
 """ Вивід результатів - форматує та виводить результати підрахунку в читабельній формі
 Вона приймає результати виконання функції count_logs_by_level. """
+# Handle the display log counts operation.
 def display_log_counts(counts: dict):
 
     print("Рівень логування | Кількість")
@@ -52,6 +56,7 @@ def display_log_counts(counts: dict):
 """ Парсинг рядка логу виконує ****функцію parse_log_line(line: str) -> dict, яка приймає рядок з логу як вхідний 
 параметр і повертає словник з розібраними компонентами: дата, час, рівень, повідомлення. 
 example: 2024-01-22 13:30:30 INFO Scheduled maintenance. """
+# Normalize the parse log line operation.
 def parse_log_line(line: str) -> dict:
     line_parts = line.split(maxsplit=3)
 
